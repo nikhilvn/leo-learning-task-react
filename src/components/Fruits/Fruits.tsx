@@ -16,7 +16,7 @@ const DUMMY_FRUITS: Fruit[] = [
   {
     id: "f2",
     name: "Orange",
-    price: 20,
+    price: 25,
     imgSrc: orangeImg,
   },
 ];

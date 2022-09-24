@@ -9,7 +9,7 @@ const LeoIcon: React.FunctionComponent<LeoIconProps> = ({ className }) => {
       x="0px"
       y="0px"
       viewBox="0 0 770.7 295.7"
-      enable-background="new 0 0 770.7 295.7"
+      enableBackground="new 0 0 770.7 295.7"
       className={className}
     >
       <path

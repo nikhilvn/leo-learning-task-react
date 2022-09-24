@@ -9,7 +9,7 @@ const FruitsList: React.FunctionComponent<FruitsListProps> = ({ fruits }) => {
   return (
     <ul className="grid grid-cols-2 gap-10">
       {fruits.map((fruit) => {
-        return <FruitItem fruit={fruit} />;
+        return <FruitItem fruit={fruit} key={fruit.id} />;
       })}
     </ul>
   );
