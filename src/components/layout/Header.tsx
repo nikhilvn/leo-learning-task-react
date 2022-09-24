@@ -1,4 +1,4 @@
-import CartButton from "../CartButton";
+import CartButton from "../Cart/CartButton";
 import LeoIcon from "../icons/LeoIcon";
 
 interface HeaderProps {

@@ -1,5 +1,5 @@
-import CartIcon from "./icons/CartIcon";
-import Button from "./UI/Button";
+import CartIcon from "../icons/CartIcon";
+import Button from "../UI/Button";
 
 interface CartButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
