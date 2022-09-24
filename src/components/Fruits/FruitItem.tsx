@@ -11,16 +11,25 @@ interface FruitItemProps {
 const FruitItem: React.FunctionComponent<FruitItemProps> = ({ fruit }) => {
   const cartContext = useContext(CartContext);
 
+  const itemOffers = cartContext.offers.some(
+    (offer) => offer.itemID === fruit.id && offer.active
+  );
+
   function addItemHandler() {
-    cartContext.add({
+    cartContext.addItem({
       fruit,
-      amount: 1,
+      count: 1,
     });
   }
 
   return (
     <Card>
       <div className="relative overflow-hidden">
+        {itemOffers ? (
+          <div className="absolute top-0 left-0 bg-rose-600 text-white p-2 text-center -rotate-45 origin-top-right -translate-x-[30%] before:absolute before:w-full before:h-full before:top-0 before:right-full before:bg-rose-600 after:absolute after:w-full after:h-full after:top-0 after:left-full after:bg-rose-600">
+            Offer
+          </div>
+        ) : null}
         <img
           src={fruit.imgSrc}
           alt={fruit.name}

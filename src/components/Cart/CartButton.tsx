@@ -10,7 +10,7 @@ const CartButton: React.FunctionComponent<CartButtonProps> = (props) => {
   const cartContext = useContext(CartContext);
 
   const cartItemsCount = cartContext.items.reduce((count, item) => {
-    return count + item.amount;
+    return count + item.count;
   }, 0);
 
   return (

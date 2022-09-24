@@ -9,15 +9,19 @@ interface CartItemProps {
 const CartListItem: React.FunctionComponent<CartItemProps> = ({ item }) => {
   const cartContext = useContext(CartContext);
 
+  const itemOffers = cartContext.offers.filter(
+    (offer) => offer.itemID === item.fruit.id
+  );
+
   function addItem() {
-    cartContext.add({
+    cartContext.addItem({
       fruit: item.fruit,
-      amount: 1,
+      count: 1,
     });
   }
 
   function removeItem() {
-    cartContext.remove(item.fruit.id);
+    cartContext.removeItem(item.fruit.id);
   }
 
   return (
@@ -28,13 +32,22 @@ const CartListItem: React.FunctionComponent<CartItemProps> = ({ item }) => {
           alt={item.fruit.name}
           className="w-[75px] border-2 border-neutral-300 rounded"
         />
-        <span>{item.fruit.name}</span>
+        <div className="flex flex-col">
+          <span>{item.fruit.name}</span>
+          {itemOffers.map((offer) => {
+            return offer.active ? (
+              <span key={offer.id} className="text-xs text-rose-500">
+                Offer: {offer.name}
+              </span>
+            ) : null;
+          })}
+        </div>
       </div>
       <div className="flex justify-end items-center gap-3">
         <Button className="px-3 py-1" onClick={addItem}>
           +
         </Button>
-        <span>{item.amount}</span>
+        <span>{item.count}</span>
         <Button className="px-3 py-1" onClick={removeItem}>
           -
         </Button>

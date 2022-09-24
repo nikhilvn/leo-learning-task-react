@@ -3,14 +3,24 @@ import { Fruit } from "../types/Fruit";
 
 export interface CartItem {
   fruit: Fruit;
-  amount: number;
+  count: number;
+}
+
+export interface Offer {
+  id: string;
+  name: string;
+  itemID: string;
+  active: boolean;
+  activation: (price: number, totalPrice: number) => number;
 }
 
 const CartContext = createContext({
   items: [] as CartItem[],
   totalAmount: 0,
-  add: (item: CartItem) => {},
-  remove: (id: string) => {},
+  offers: [] as Offer[],
+  addItem: (item: CartItem) => {},
+  removeItem: (id: string) => {},
+  toggleOffer: (id: string, checked: boolean) => {},
 });
 
 export default CartContext;
